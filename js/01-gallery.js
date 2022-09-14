@@ -51,7 +51,8 @@ function createLightBoxEl(image) {
   window.addEventListener('keydown', closeModal);
 
   function closeModal(event) {
-    if (event.code === 'Escape') {
+    if (event.code === 'Escape' || !instance.visible()) {
+      console.log(event.code);
       instance.close();
       window.removeEventListener('keydown', closeModal);
     }
